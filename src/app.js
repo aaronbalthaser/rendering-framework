@@ -3,8 +3,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { element } from './utils';
 import { Router } from './Router';
 
-import { Header } from './components/Header';
-import { Navigation } from './components/Navigation';
+import { Header, Navigation } from './components';
 
 import { HomePage, AboutPage, ContactPage } from './pages';
 
