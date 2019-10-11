@@ -1,4 +1,4 @@
-import { Renderer } from '../components';
+import { Renderer } from '../Renderer';
 
 const DEFAULTS = {
   containerId: 'main',
@@ -17,8 +17,8 @@ export class Page extends Renderer {
     super.postRender();
   }
 
-  renderOnce() {
-    super.renderOnce();
+  componentDidRender() {
+    super.componentDidRender();
   }
 
   show() {

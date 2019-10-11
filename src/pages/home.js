@@ -1,36 +1,47 @@
 import { Page } from './';
 
 import { Carousel } from '../components/Carousel';
-
-import TemplateCarousel from '../templates/carousel';
+import { Header } from '../components/Header';
 
 import constants from '../constants';
 
+const DEFAULTS = {
+  containerId: 'main',
+  name: 'page-home'
+};
+
 export const HomePage = (template) => {
+  let data = JSON.parse(localStorage.getItem('data'));
 
   const page = new Page({
-    template: template
+    name: 'home'
   });
 
   page.render();
 
-  const imagesData = [];
-  const url = constants.imageUrl;
+  if (!data) {
+    fetch(constants.apiUrl + constants.accessKey)
+      .then(response => response.json())
+      .then(data => {
+        localStorage.setItem('data', JSON.stringify(data));
 
-  for (let i = 0; i < 8; i++) {
-    imagesData.push({
-      url: url,
-      author: 'Aaron Balthaser'
-    });
+        setupCarousel(data)
+      });
+  } else {
+    setupCarousel(data);
   }
 
-  const carousel = new Carousel({
-    template: TemplateCarousel({ data: imagesData }),
-    containerId: 'carousel'
-  });
+  function setupCarousel(data) {
+    const carousel = new Carousel({
+      componentSelector: '#carousel-container',
+      containerId: 'carousel'
+    });
 
-  carousel.render();
-  carousel.show();
+    carousel.render(data);
+    carousel.show();
+  }
 
   page.show();
+
+  Page.DEFAULTS = DEFAULTS;
 };

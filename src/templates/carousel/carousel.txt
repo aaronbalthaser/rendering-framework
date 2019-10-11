@@ -1,7 +1,0 @@
-<div class="slide-container">
-{{ for(let obj of it) { }}
-  <div class="slide">
-    <img src="{{=obj.url}}" alt="{{=obj.author}}" />
-  </div>
-{{ } }}
-</div>

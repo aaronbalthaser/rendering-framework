@@ -1,4 +1,4 @@
-import { Renderer } from '../components';
+import { Renderer } from '../Renderer';
 
 const DEFAULTS = {};
 
@@ -15,8 +15,8 @@ export class Component extends Renderer {
     super.postRender();
   }
 
-  renderOnce() {
-    super.renderOnce();
+  componentDidRender() {
+    super.componentDidRender();
   }
 
   show() {

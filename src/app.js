@@ -1,11 +1,10 @@
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 import { element } from './utils';
 import { Router } from './Router';
 
-import TemplateHeader from './templates/header';
-import TemplateNavigation from './templates/navigation';
-import TemplateHomePage from './templates/_pages/home';
-import TemplateAboutPage from './templates/_pages/about';
-import TemplateContactPage from './templates/_pages/contact';
+import { Header } from './components/Header';
+import { Navigation } from './components/Navigation';
 
 import { HomePage, AboutPage, ContactPage } from './pages';
 
@@ -13,39 +12,42 @@ import './app.scss';
 
 (function () {
   const body = document.querySelector('body');
-  const header = TemplateHeader({ nodes: true });
-  const navigation = TemplateNavigation({ nodes: true });
 
   body.id = 'body';
-  body.appendChild(header);
-  body.appendChild(navigation);
 
-  element({
+  const header = new Header();
+  header.render().show();
+
+  const navigation = new Navigation();
+  navigation.render().show();
+
+  const main = element({
     name: 'main',
-    id: 'main',
-    node: body
+    id: 'main'
   });
+
+  body.append(main)
 
   // Router:
   const router = new Router();
 
   router.route('/', 'home', () => {
-    HomePage(TemplateHomePage());
+    HomePage();
   });
 
   router.route('/about', 'about', () => {
-    AboutPage(TemplateAboutPage());
+    AboutPage();
   });
 
   router.route('/contact', 'contact', () => {
-    ContactPage(TemplateContactPage());
+    ContactPage();
   });
 
   function routerHandler() {
     const path = location.hash.slice(1) || '/';
 
     router.get(path, (route) => {
-      if (route.controller) {
+      if (route && route.controller) {
         route.controller();
       }
     });

@@ -1,7 +1,12 @@
+import dot from 'dot';
+
+import templates from './templates';
+
 const DEFAULTS = {
   containerId: '',
   template: '',
-  hiddenClass: 'hidden'
+  hiddenClass: 'hidden',
+  base: false
 };
 
 export class Renderer {
@@ -13,11 +18,12 @@ export class Renderer {
     this.name = this.options.name || Object.getPrototypeOf(this).constructor.name;
     this.namespace = this.options.namespace || this.name.toLowerCase();
     this.template = this.options.template;
+    this.base = this.options.base;
 
     this.rendered = false;
   }
 
-  render() {
+  render(data) {
     this.hide();
 
     this.renderTemplate.apply(this, arguments);
@@ -27,17 +33,33 @@ export class Renderer {
 
   postRender() {
     if (!this.rendered) {
-      this.renderOnce.apply(this, arguments);
+      this.componentDidRender.apply(this, arguments);
     }
   }
 
   renderTemplate() {
-    this.container.innerHTML = this.template;
+    if (!this.template) {
+      this.template = this._bindData(templates[this.namespace].default, {
+        data: arguments[0] || null,
+        nodes: this.base ? true : false
+      });
+    }
+
+    /**
+     * If the base is true the component was marked as a base component to be
+     * rendered within the container using append child to prevent wiping out 
+     * other base components.
+     */
+    if (this.base) {
+      this.container.appendChild(this.template);
+    } else {
+      this.container.innerHTML = this.template;
+    }
   }
 
-  renderOnce() {
+  componentDidRender() {
     this.initializeEvents();
-    this.renderOnce = () => { };
+    this.componentDidRender = () => { };
   }
 
   initializeEvents() { }
@@ -58,6 +80,15 @@ export class Renderer {
 
   _defaults() {
     return Object.getPrototypeOf(this).constructor.DEFAULTS;
+  }
+
+  _bindData(template, options = {}) {
+    const { data, nodes } = options;
+    const templateFn = dot.template(template);
+
+    return nodes
+      ? document.createRange().createContextualFragment(templateFn(data))
+      : templateFn(data);
   }
 }
 
