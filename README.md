@@ -2,6 +2,8 @@
 
 This project is a Vanilla JS (simple) single page application framework including base classes for rendering pages and components utilizing class inheritance. It also contains a simple API for routing.
 
+My inspiration for this project was seeded from a recollection of some work I saw done awhile back in some depreciated code at one of my roles as a Frontend Developer. I never had the time to learn what the code was actually doing but one of my work associates was able to explain conceptually the developers intent. The project was my attempt to mirror the same concepts since I always regretted not having the time to really learn her code.
+
 ## Installation
 
 Make your life easier and setup NVM for managing node versions. By doing that all you need to do is run "nvm use" to avoid npm version issues.
