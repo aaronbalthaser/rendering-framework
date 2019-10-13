@@ -27,7 +27,7 @@ yarn build OR npm build
 yarn lint OR npm lint
 ```
 
-## Paes && Routing
+## Pages & Routing
 
 The page and routing API is simple. A current example is illustrated in the app.js file and was setup using routes for the home, about and contact pages. Adding a new page and route is simple:
 
