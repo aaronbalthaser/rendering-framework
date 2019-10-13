@@ -1,6 +1,8 @@
-## Webpack 4 Starter
+## Vanilla Javascript SPA Rendering Framework
 
-This is a Webpack starter for creating ES6 playground projects and was creating from Node Version 12.8.0
+This project is a Vanilla JS (simple) single page application framework including base classes for rendering pages and components utilizing class inheritance. It also contains a simple API for routing.
+
+## Installation
 
 Make your life easier and setup NVM for managing node versions. By doing that all you need to do is run "nvm use" to avoid npm version issues.
 
@@ -24,10 +26,6 @@ yarn build OR npm build
 ```
 yarn lint OR npm lint
 ```
-
-## Introduction
-
-This project is a Vanilla JS (simple) single page application framework including base classes for rendering pages and components utilizing class inheritance. It also contains a simple API for routing and state management. The state management is still incomplete and is a work in progress as it still needs to have re rending integrated for component updating. This project is the result of maybe having a little too much time on my hands. :)
 
 ## Paes && Routing
 
