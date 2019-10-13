@@ -9,7 +9,7 @@ const DEFAULTS = {
   name: 'page-home'
 };
 
-export const HomePage = (template) => {
+export const HomePage = () => {
   let data = JSON.parse(localStorage.getItem('data'));
 
   const page = new Page({

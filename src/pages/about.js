@@ -9,7 +9,7 @@ const DEFAULTS = {
   name: 'page-about'
 };
 
-export const AboutPage = (template) => {
+export const AboutPage = () => {
 
   const page = new Page({
     name: 'about'

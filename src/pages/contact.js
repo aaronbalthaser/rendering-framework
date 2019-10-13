@@ -9,7 +9,7 @@ const DEFAULTS = {
   name: 'page-contact'
 };
 
-export const ContactPage = (template) => {
+export const ContactPage = () => {
 
   const page = new Page({
     name: 'contact'
