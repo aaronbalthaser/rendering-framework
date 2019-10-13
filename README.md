@@ -2,7 +2,7 @@
 
 This project is a Vanilla JS (simple) single page application framework including base classes for rendering pages and components utilizing class inheritance. It also contains a simple API for routing.
 
-My inspiration for this project was seeded from a recollection of some work I saw done awhile back in some depreciated code at one of my jobs as a Frontend Developer. I never had the time to learn what the code was actually doing but one of my work associates was able to explain conceptually the developers intent. The project was my attempt to mirror the same concepts since I always regretted not having the time to really learn her code.
+My inspiration for this project was seeded from a recollection of some work I saw done awhile back in some depreciated code at one of my jobs as a Frontend Developer. I never had the time to learn what the code was actually doing but one of my coworkers was able to explain conceptually the developers intent. This project was my attempt to mirror the same concepts since I always regretted not having the time to really learn her code. I never knew who the girl was but credit to the concepts I learned and was able to sort of emulate must go to her, whoever she was.
 
 ## Installation
 
