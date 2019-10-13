@@ -1,1 +1,1 @@
-<div><p>Contact Page</p></div>
+<div id="contact-page" class="page"></div>

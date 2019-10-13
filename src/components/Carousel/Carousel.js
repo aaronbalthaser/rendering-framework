@@ -13,9 +13,8 @@ export class Carousel extends Component {
   constructor(options) {
     super(options);
 
-    const { componentSelector, auto, timeout, delay } = options;
+    const { auto, timeout, delay } = options;
 
-    this.componentSelector = componentSelector;
     this.auto = auto;
     this.timeout = timeout || 0
     this.delay = delay || constants.delay;
@@ -28,14 +27,11 @@ export class Carousel extends Component {
   render() {
     super.render.apply(this, arguments);
 
-    this.componentContainer = document.querySelector(this.componentSelector);
-    this.slides = document.querySelectorAll(constants.slidesSelector);
+    this.slides = this.container.querySelectorAll(constants.slidesSelector);
     this.slides[this.index].classList.add(constants.active);
-    this.length = this.slides.length;
-    this.ltControl = document.querySelector(constants.sliedLtControl);
-    this.rtControl = document.querySelector(constants.slideRtControl);
-    this.dots = document.querySelectorAll(constants.slideDotSelector);
+    this.dots = this.container.querySelectorAll(constants.slideDotSelector);
     this.dots[this.index].classList.add(constants.active);
+    this.length = this.slides.length;
   }
 
   show() {
@@ -51,10 +47,11 @@ export class Carousel extends Component {
   }
 
   initializeEvents() {
-    this.controls = document.querySelector(constants.slideControls);
-    this.controls.addEventListener('click', this.controlsHandler.bind(this));
+    console.log(constants.slideControlsSelector);
+    this.controlesContainer = this.container.querySelector(constants.slideControlsSelector);
+    this.controlesContainer.addEventListener('click', this.controlsHandler.bind(this));
 
-    this.dotsContainer = document.querySelector(constants.slideDotsSelector);
+    this.dotsContainer = this.container.querySelector(constants.slideDotsSelector);
     this.dotsContainer.addEventListener('click', this.dotNavigationHandler.bind(this));
   }
 

@@ -4,7 +4,7 @@ const constants = {
   // Carousel
   slidesSelector: '.slide',
   slideDotsSelector: '.slide-dots',
-  slideControls: '.slide-controls',
+  slideControlsSelector: '.slide-controls',
   slideControlDirLt: 'lt',
   slideControlDirRt: 'rt',
   slideDotSelector: '.slide-dot',

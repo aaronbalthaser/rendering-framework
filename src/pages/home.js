@@ -1,7 +1,6 @@
 import { Page } from './';
 
 import { Carousel } from '../components/Carousel';
-import { Header } from '../components/Header';
 
 import constants from '../constants';
 
@@ -33,11 +32,10 @@ export const HomePage = (template) => {
 
   function setupCarousel(data) {
     const carousel = new Carousel({
-      componentSelector: '#carousel-container',
       containerId: 'carousel'
     });
 
-    carousel.render(data);
+    carousel.render({ data });
     carousel.show();
   }
 
