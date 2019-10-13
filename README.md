@@ -131,9 +131,7 @@ export class Carousel extends Component {
     // Initialize event listeners
   }
 
-  // Carousel methods:
-  autoSlide() {
-
+  // Carousel specific methods below:
 }
 
 Carousel.DEFAULTS = DEFAULTS;
