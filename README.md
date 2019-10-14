@@ -156,6 +156,6 @@ carousel.show();
 
 ## End
 
-This was only a weekend project for fun and learning. I wanted to play around with class inheritance and finding a way to render HTML in the DOM. This was the result. 
+This was only a weekend project for fun and learning. I wanted to play around with class inheritance and finding a way to render HTML in the DOM. Obviously with all the amazing Javascript Frameworks I would never use this but I learned a lot while building it, and had fun. This was the result. 
 
 This system has many limitations and issues I found along the way. Maybe if I have time, God willing at some point I will express my experiences with what I've learned.
